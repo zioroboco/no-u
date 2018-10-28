@@ -13,9 +13,9 @@ package:
    - ./bin/**
 
 functions:
-  hello:
-    handler: bin/hello
+  no-u:
+    handler: bin/handler
     events:
       - http:
           path: /
-          method: get
+          method: post
