@@ -1,0 +1,21 @@
+version: 2
+
+jobs:
+  deploy:
+    working_directory: ~/no-u
+    docker:
+      - image: circleci/node:8.10
+    branches:
+      only:
+        - master
+    steps:
+      - checkout
+      - run:
+          name: Setup
+          command: npm i -g serverless
+      - run:
+          name: Build
+          command: make
+      - run:
+          name: Deploy
+          command: sls deploy --stage prod
